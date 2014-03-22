@@ -1,22 +1,20 @@
+//This is a library for creating pulleys for 3/8" V-belts
+//To create a pulley call the pulley() module
+//Syntax is pulley(pulley_diameter, thickness, shaft_diameter)
+//pulley_diameter = outside diameter of pulley
+//thickness = thickness of the pulley
+//shaft_diameter = diameter of shaft to which pulley is attached
+
+
 inch=25.4;
 $fn=100;
-
-diameter=1.5*inch;
-pulley_thickness=0.5*inch;
-shaft_dia=0.5*inch;
-
-pulley(5*inch,pulley_thickness,shaft_dia);
-
-translate([0,0,0.49*inch])
-pulley(diameter,pulley_thickness,shaft_dia);
-
 
 module pulley(pulley_diameter,thickness,shaft_diameter)
 {
 	translate([0,0,thickness/2])
 	difference()
 	{
-	
+		//main body of pulley
 		translate([0,0,-(thickness/2)])
 		cylinder(r=pulley_diameter/2,h=thickness);
 	
